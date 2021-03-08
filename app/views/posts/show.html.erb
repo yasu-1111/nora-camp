@@ -1,0 +1,27 @@
+<div class="post-body">
+<h1>投稿詳細</h1>
+  <% if @post.post_images.present? %>
+    <% @post.post_images.each do |image| %>
+      <%= attachment_image_tag image, :image, format: 'jpeg', fallback: 'no_image.jpeg', size:'200x200' %>
+    <% end %>
+  <% end %>
+  <p>投稿者</p><br />
+    <%= @post.user.name %>
+  <p>タイトル</p><br />
+    <%= @post.title %>
+  <p>内容</p><br />
+    <%= render_with_hashtags(@post.caption) %>
+  <p>投稿日時</p>
+    <%= @post.created_at.strftime('%Y/%m/%d') %><br />
+    <% if @post.user == current_user %>
+      <%= link_to "編集", edit_post_path(@post.id) %>
+      <%= link_to "削除", post_path(@post.id), method: :delete %>
+    <% end %>
+    <div id="favorites_buttons_<%= @post.id %>">
+      <%= render partial: 'favorites/favorite', locals: { post: @post} %>
+    </div>
+</div>
+
+<div class="comments_<%= @post.id %>">
+  <%= render 'post_comments/comment', post: @post, post_comment: @post_comment %>
+</div>
