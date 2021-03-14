@@ -1,5 +1,11 @@
-<h1>投稿編集</h1>
-  <%= form_with model: @post, local: true do |f| %>
-    <%= render 'form_post', f: f %>
-    <%= f.submit "変更する" %>
-  <% end %>
+<div class="container row mx-auto">
+  <div class="post-newedit mx-auto text-center bg-light py-4 px-3 col-md-7 rounded">
+    <h4 class="post-newedit-title mb-4 px-3 py-2 rounded"><mark class="mark-color">投稿編集</mark></h4>
+      <h5 class="mb-3">投稿の編集ができます</h5>
+        <%= form_with model: @post, local: true do |f| %>
+          <%= render 'form_post', f: f %>
+          <%= f.submit "変更する", class: 'btn btn-success btn-lg mx-auto d-block'  %>
+        <% end %>
+    </div>
+  </div>
+</div>

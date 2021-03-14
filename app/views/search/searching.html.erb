@@ -1,0 +1,18 @@
+<div class="container row mx-auto mt-3">
+  <div class="search mx-auto text-center bg-light py-4 px-3 col-md-8 rounded">
+    <h4 class="search-title mb-4 px-3 py-2 rounded"><mark class="mark-color">検索</mark></h4>
+    <h5 class="mb-3">ユーザーとタグの検索ができます</h5>
+      <%= form_with url: search_search_path, method: :get, local: true do |f| %>
+        <div class="form-group row justify-content-center">
+        <%= select_tag(:option, options_for_select([["user", "1"],["hashname", "2"]])) %>
+        <%= select_tag(:choice, options_for_select([["あいまい検索", "1"],["後方一致検索", "2"],["前半一致検索", "3"],["完全一致検索", "4"]])) %>
+        </div>
+        <div class="form-group row justify-content-center">
+        <%= f.text_field :search, class: "col-sm-6 form-control-static search" %>
+        </div>
+        <div class="actions">
+        <%= f.submit 'Search', name: nil %>
+        </div>
+      <% end %>
+  </div>
+</div>

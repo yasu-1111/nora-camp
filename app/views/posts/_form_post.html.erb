@@ -1,12 +1,14 @@
-<div class="form-group row">
-  <p class="col-md-5">画像</p>
-    <%= f.attachment_field :post_images_images, multiple: true, class: 'image col-md-7 p-0' %>
-</div>
-<div class="form-group row">
-  <%= f.label :"タイトル", class: "col-sm-5 control-label" %>
-  <%= f.text_field :title, class: "col-sm-7 form-control-static name" %>
-</div>
-<div class="form-group row">
-  <%= f.label :"本文", class: "col-sm-5 control-label" %>
-  <%= f.text_area :caption, class: "col-sm-7 control-label explanation" %>
+<div class="post-form">
+  <div class="form-group row">
+    <p class="col-md-5">画像</p>
+      <%= f.attachment_field :post_images_images, multiple: true, class: 'image col-md-7 p-0' %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :"タイトル", class: "col-sm-5 control-label" %>
+    <%= f.text_field :title, class: "col-sm-6 form-control-static name" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :"本文", class: "col-sm-5 control-label" %>
+    <%= f.text_area :caption, rows: '5', class: "col-sm-6 control-label explanation" %>
+  </div>
 </div>

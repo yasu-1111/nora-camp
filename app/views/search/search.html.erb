@@ -1,0 +1,34 @@
+<% if @user_or_hashname == "1" %>
+<div class="container row mx-auto mt-3">
+  <div class="users mx-auto col-md-12">
+      <table class="users-table table table-hover col-md-9 mt-3 mx-auto">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <% @users.each do |user| %>
+          <tr onclick='window.location="<%= '/users/' + user.id.to_s %>"' role="link">
+            <td></td>
+            <td>
+            <%= link_to (user) do %>
+              <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: 'no_image.jpeg', size:'60x60', class:"rounded-circle"; %>
+            <% end %>
+            </td>
+            <td><%= link_to user.name, user_path(user), class: 'text-dark h2' %></td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+</div>
+
+  <% elsif @user_or_hashname == "2" %>
+
+    <h1>ハッシュタグ #<%= @hashnames.first.hashname if @hashnames.size > 0  %></h1>
+    <% if @hashnames.size > 0 %>
+        <%= render 'posts/list', posts: @posts %>
+    <% end %>
+  <% else %>
+  <% end %>

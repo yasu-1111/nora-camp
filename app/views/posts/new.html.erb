@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="mx-auto col-md-5">
-      <h1 class="mb-5">新規投稿</h1>
+<div class="container row mx-auto">
+    <div class="post-newedit mx-auto text-center bg-light py-4 px-3 col-md-7 rounded">
+      <h4 class="post-newedit-title mb-4 px-3 py-2 rounded"><mark class="mark-color">新規投稿</mark></h4>
+      <h5 class="mb-3">新しい投稿ができます</h5>
         <%= form_with model: @post, local: true do |f| %>
           <%= render 'form_post', f: f %>
           <%= f.submit "投稿する", class: 'btn btn-success btn-lg mx-auto d-block' %>
