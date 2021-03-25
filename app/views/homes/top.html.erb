@@ -6,7 +6,7 @@
     <span><%= image_tag 'top-5.jpg', class: 'top-image' %></span>
     <span><%= image_tag 'top1.jpg', class: 'top-image' %></span>
   </div>
-  <p class="title">nora-ca</p>
+  <p class="title">nora-camp</p>
   <div class="title-btn">
     <% if user_signed_in? %>
     <% else %>
@@ -14,10 +14,16 @@
       <span class="title-btn-2 mr-3"><%= link_to '新規登録', new_user_registration_path, class: 'btn btn--orange btn--cubic btn--shadow' %></span>
     <% end %>
   </div>
+  <div class="guest-btn">
+<% if user_signed_in? %>
+    <% else %>
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: 'btn btn--yellow btn--circle' %>
+    <% end %>
+  </div>
 </div>
 
 <div class="top-about">
-  <h2 class="heading text-center pt-5">nora-campとは？</h2>
+  <h2 class="heading text-center pt-3 pb-5">nora-campとは？</h2>
   <div class="top-about-logo">
       <p class="heading-text text-center pt-2">
         キャンプ好き・アウトドア好きの為の投稿サイト
@@ -25,7 +31,7 @@
     <div class="strength-group container row col-md-12 pt-3">
       <div class="strength text-center col-md-6">
         <div class="row">
-          <div class="col-md-5"><%= image_tag 'top-logo.PNG', size:'200x150' %></div>
+          <div class="col-md-5"><%= image_tag 'top-logo.PNG', size:'180x150' %></div>
           <div class="col-md-7">
           <h3 class="strength-title">新たな発見</h3>
           <p class="strength-text">
@@ -38,7 +44,7 @@
       </div>
       <div class="strength text-center col-md-6">
         <div class="row">
-          <div class="col-md-5"><%= image_tag 'people2.JPG', size:'180x150' %></div>
+          <div class="col-md-5"><%= image_tag 'hito2.jpg', size:'180x160' %></div>
           <div class="col-md-7">
             <h3 class="strength-title">交流の場</h3>
             <p class="strength-text">
@@ -77,8 +83,8 @@
   <div class="top-logo-child-2">
     <div class="strength-img-group text-center container row col-md-12 pt-3">
       <div class="strength-img col-md-4">
-        <p>テント</p>
-        <%= image_tag 'tento.jpg', size:'250x150' %>
+        <p>ファッション</p>
+        <%= image_tag 'huku.jpg', size:'250x150' %>
       </div>
       <div class="strength-img col-md-4">
         <p>ギア</p>

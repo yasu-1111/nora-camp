@@ -18,7 +18,7 @@
                 </div>
                 <div class="c-body-child col-md-10 ">
                   <p class="card-title col-md-12">投稿者<span class="name ml-5"><%= link_to post.user.name, user_path(post.user.id), class: 'text-dark' %></span></p>
-                  <p class="card-title col-md-12">タイトル<span class="ml-4"><%= link_to post.title, post_path(post.id), class: 'text-dark' %></span></p>
+                  <p class="card-title col-md-12">タイトル<span class="ml-3">　<%= link_to post.title, post_path(post.id), class: 'text-dark' %></span></p>
                   <p class="card-title col-md-12">
                     <span><%= icon("fas", "comment-alt", class: "text-success") %> <%= post.post_comments.count %>コメント</span>
                     <span><%= icon("fas", "heart", class: "text-danger") %> <%= post.favorites.count %>いいね</span>
@@ -30,5 +30,6 @@
         </div>
         <% end %>
       </div>
+      <%= paginate @posts %>
     </div>
 </div>

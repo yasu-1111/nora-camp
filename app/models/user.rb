@@ -17,6 +17,17 @@ class User < ApplicationRecord
   has_many :chats
   has_many :rooms, through: :user_rooms
 
+  validates :name, uniqueness: true, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 50 }
+
+
+  def self.guest
+    find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
+
   # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)

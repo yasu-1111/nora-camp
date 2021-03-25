@@ -1,5 +1,6 @@
-<div class="container row mx-auto">
-    <div class="post-newedit mx-auto text-center bg-light py-4 px-3 col-md-7 rounded">
+<div class="container row mx-auto my-3">
+    <div class="post-newedit mx-auto text-center bg-light py-4 px-3 col-md-12 rounded">
+      <div class="col-md-12"><%= render 'error_message', post: @post %></div><br />
       <h4 class="post-newedit-title mb-4 px-3 py-2 rounded"><mark class="mark-color">新規投稿</mark></h4>
       <h5 class="mb-3">新しい投稿ができます</h5>
         <%= form_with model: @post, local: true do |f| %>
@@ -7,5 +8,4 @@
           <%= f.submit "投稿する", class: 'btn btn-success btn-lg mx-auto d-block' %>
         <% end %>
     </div>
-  </div>
 </div>

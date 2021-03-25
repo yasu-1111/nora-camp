@@ -5,11 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -24,28 +25,28 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li>
-              <%= link_to icon("fas", "search", "検索"), search_searching_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "search", "検索"), search_searching_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
-              <%= link_to icon("fas", "house-user", "マイページ"), user_path(current_user.id), class:"text-white mr-3" %>
-            </li>
-            <li>
-              <%= link_to icon("fas", "users", "ユーザー一覧"), users_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "house-user", "マイページ"), user_path(current_user.id), class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <%= link_to icon("fas", "book-reader", "投稿一覧"), posts_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "users", "ユーザー一覧"), users_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <%= link_to icon("fas", "edit", "投稿フォーム"), new_post_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "book-reader", "投稿一覧"), posts_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <%= link_to icon("fas", "sign-out-alt", "ログアウト"), destroy_user_session_path, method: :delete, class:"text-white" %>
+              <%= link_to icon("fas", "edit", "投稿フォーム"), new_post_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
+            </li>
+            <li>
+              <%= link_to icon("fas", "sign-out-alt", "ログアウト"), destroy_user_session_path, method: :delete, class:"text-white", data: {"turbolinks" => false} %>
             </li>
           <% else %>
             <li>
-              <%= link_to icon("fas", "plus", "新規登録"), new_user_registration_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "plus", "新規登録"), new_user_registration_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <%= link_to icon("fas", "sign-in-alt", "ログイン"), new_user_session_path, class:"text-white mr-3" %>
+              <%= link_to icon("fas", "sign-in-alt", "ログイン"), new_user_session_path, class:"text-white mr-3", data: {"turbolinks" => false} %>
             </li>
             <% end %>
             </ul>
@@ -53,6 +54,11 @@
         </div>
       </nav>
     </header>
+    <span class="text-success">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: message_type %>
+    <% end %>
+    </span>
     <%= yield %>
     <footer>
       <div class="text-center pb-5 pt-5"><%= image_tag 'footer4.JPG', size:'250x20' %></span>

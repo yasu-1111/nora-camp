@@ -14,12 +14,13 @@
             <td></td>
             <td>
             <%= link_to (user) do %>
-              <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: 'no_image.jpeg', size:'60x60', class:"rounded-circle"; %>
+              <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: 'no_image.jpeg', size:'40x40', class:"rounded-circle"; %>
             <% end %>
             </td>
-            <td><%= link_to user.name, user_path(user), class: 'text-dark h2' %></td>
+            <td><%= link_to user.name, user_path(user), class: 'text-dark h3' %></td>
           </tr>
         <% end %>
       </table>
+      <%= paginate @followings %>
   </div>
 </div>

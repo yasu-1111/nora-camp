@@ -1,6 +1,6 @@
 <div class="container row mx-auto mt-3">
   <div class="profile w-75 d-flex mx-auto justify-content-around align-items-center ">
-    <span class="profile-name display-4 col-md-3">
+    <span class="profile-name display-4 col-md-3 mb-3">
       <%= user.name %><br />
       <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class:"rounded-circle"; %>
       <p><%= link_to icon("fas", "user-cog"), edit_user_path(user), class:"btn btn-outline-secondary ml-4" %></p>
@@ -16,9 +16,9 @@
               <% end %>
           <% end %>
             </p><br />
-        <span><%= link_to "フォロー数：#{user.follower.count}", followings_user_path(user.id), class: 'text-secondary' %>
+        <span><%= link_to "フォロー#{user.follower.count}", followings_user_path(user.id), class: 'text-secondary' %>
         /
-        <%= link_to "フォロワー数：#{user.followed.count}", followers_user_path(user.id),  class: 'text-secondary' %>
+        <%= link_to "フォロワー#{user.followed.count}", followers_user_path(user.id),  class: 'text-secondary' %>
         </span><br />
         <div class="follow-btn text-center">
           <% unless user == current_user %>

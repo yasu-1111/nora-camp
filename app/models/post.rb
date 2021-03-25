@@ -3,9 +3,13 @@ class Post < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :post_hash
+  has_many :post_hash, dependent: :destroy
   has_many :hashtags, through: :post_hash
   accepts_attachments_for :post_images, attachment: :image
+
+  validates :post_images_images, presence: true
+  validates :title, presence: true, length: { in: 2..20 }
+  validates :caption, presence: true, length: { maximum: 200 }
 
   after_create do
     post = Post.find_by(id: self.id)

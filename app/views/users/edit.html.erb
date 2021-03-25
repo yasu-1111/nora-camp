@@ -1,5 +1,6 @@
 <div class="container row mx-auto">
-  <div class="profile-edit mx-auto text-center bg-light py-4 px-3 col-md-6 rounded">
+  <div class="profile-edit mx-auto text-center bg-light py-4 px-3 col-md-10 rounded">
+    <div class="col-md-12"><%= render 'error_message', user: @user %></div><br />
     <h4 class="profile-edit-title mb-4 px-3 py-2 rounded"><mark class="mark-color">プロフィール編集</mark></h4>
     <h5 class="mb-3">こちらでプロフィール編集ができます</h5>
     <%= form_with model: @user, local: true do |f| %>

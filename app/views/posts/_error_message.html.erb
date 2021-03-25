@@ -1,0 +1,8 @@
+<div class="text-danger">
+<% if post.errors.any? %>
+   <span class="h4"><%= post.errors.count %>errors prohibited this obj from being saved:</span>
+  <% post.errors.full_messages.each do |message| %><br>
+     ・<%= message %>
+  <% end %>
+<% end %>
+</div>

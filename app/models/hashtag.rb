@@ -13,6 +13,8 @@ class Hashtag < ApplicationRecord
           Hashtag.where(['hashname LIKE ?', "#{search}%"])
       elsif how_search == "4"
           Hashtag.where(['hashname LIKE ?', "#{search}"])
+      else
+          Hashtag.all
       end
   end
 
