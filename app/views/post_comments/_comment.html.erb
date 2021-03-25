@@ -3,7 +3,7 @@
   <% post.post_comments.each do |post_comment| %>
       <div class="comment-group row">
         <div class="col-md-2">
-          <%= attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', fallback: 'no_image.jpeg', size:'25x25', class:"rounded-circle"; %>
+          <%= attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size:'25x25', class:"rounded-circle"; %>
         </div>
         <div class="col-md-10">
           <p class="text-secondary">

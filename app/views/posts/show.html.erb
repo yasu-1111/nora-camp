@@ -3,7 +3,7 @@
     <div class="show-image">
       <% if @post.post_images.present? %>
         <% @post.post_images.each do |image| %>
-          <%= attachment_image_tag image, :image, format: 'jpeg', fallback: 'no_image.jpeg', size:'200x200', class: 'c-img card-img-top' %>
+          <%= attachment_image_tag image, :image, format: 'jpeg', fallback: 'no_image.jpg', size:'200x200', class: 'c-img card-img-top' %>
         <% end %>
       <% end %>
     </div>
